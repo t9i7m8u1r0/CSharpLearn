@@ -3,14 +3,13 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int t = 0;
-        do
+        Console.WriteLine("Введите своё имя");
+        string name = Console.ReadLine();
+        Console.WriteLine("Ваше имя по буквам:");
+        foreach(char nameArr in name)
         {
-            Console.WriteLine(t);
-            Console.WriteLine("Write your favorite color");
-            switch (Console.ReadLine()) { }
-            t++;
+            Console.Write(nameArr + " ");
         }
-        while (t < 3);
+        Console.Write("Последняя буква вашего имени: " + name[name.Length - 1]);
     }
 }
