@@ -5,11 +5,10 @@ class MainClass
     {
         Console.WriteLine("Введите своё имя");
         string name = Console.ReadLine();
-        Console.WriteLine("Ваше имя по буквам:");
-        foreach(char nameArr in name)
+
+        for (int i = name.Length - 1;  i >= 0; i--)
         {
-            Console.Write(nameArr + " ");
+            Console.Write(name[i]);
         }
-        Console.Write("Последняя буква вашего имени: " + name[name.Length - 1]);
     }
 }
