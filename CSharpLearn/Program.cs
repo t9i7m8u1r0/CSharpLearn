@@ -3,12 +3,10 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Введите своё имя");
-        string name = Console.ReadLine();
-
-        for (int i = name.Length - 1;  i >= 0; i--)
+        int[,] array = { { 1, 2, 3 }, { 5, 6, 7 } };
+        foreach (int i in array)
         {
-            Console.Write(name[i]);
+            Console.WriteLine(i);
         }
     }
 }
