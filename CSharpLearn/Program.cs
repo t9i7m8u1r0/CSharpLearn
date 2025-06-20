@@ -3,18 +3,18 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int[][] array = new int[3][];
+        int[] arr = {-3, -2, -1, 0, 1, 2, 3};
 
-        array[0] = new int[2] { 1, 2 };
-        array[1] = new int[3] { 1, 2, 3 };
-        array[2] = new int[5] { 1, 2, 3, 4, 5 };
+        int count = 0;
 
-        foreach (int[] i in array)
+        for (int i = 0; i < arr.Length; i++)
         {
-            foreach (int j in i)
+            if (arr[i] > 0)
             {
-                Console.Write($"{j} ");
+                count++;
             }
         }
+
+        Console.WriteLine(count);
     }
 }
