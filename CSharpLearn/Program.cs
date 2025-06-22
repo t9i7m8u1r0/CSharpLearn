@@ -19,5 +19,7 @@ class MainClass
 
         Console.Write("Введите логин");
         User.login = Console.ReadLine();
+
+        User.loginLength = User.login.Length;
     }
 }
