@@ -12,7 +12,7 @@ class MainClass
             favcolors[i] = Console.ReadLine();
         }
 
-        ShowColors(favcolors[0], favcolors[2]);
+        ShowColors();
     }
 
     static void ShowColors(params string[] favcolors)
