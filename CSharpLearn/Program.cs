@@ -33,7 +33,7 @@ class MainClass
 
     static string ShowColor(string username)
     {
-        Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+        Console.WriteLine($"{username}, напишите свой любимый цвет на английском с маленькой буквы");
         var color = Console.ReadLine();
 
         switch (color)
