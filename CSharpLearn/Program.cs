@@ -1,49 +1,26 @@
 ﻿using System;
 using System.Drawing;
+using System.Xml.Linq;
 class MainClass
 {
     public static void Main(string[] args)
     {
-        GetArrayFromConsole();
+        string[] favcolors = new string[3];
 
-        int[] array = new int[5];
-
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < favcolors.Length; i++)
         {
-            array[i] = int.Parse(Console.ReadLine());
+            favcolors[i] = Console.ReadLine();
         }
 
-        SortArray(array);
+        ShowColors(favcolors[0], favcolors[2]);
     }
-    public static int[] GetArrayFromConsole()
+
+    static void ShowColors(params string[] favcolors)
     {
-        int[] result = new int[5];
-
-        for (int i = 0; i < result.Length; i++)
+        Console.WriteLine("Ваши любимые цвета:");
+        foreach (var color in favcolors)
         {
-            result[i] = int.Parse(Console.ReadLine());
+            Console.WriteLine(color);
         }
-
-        return result;
-    }
-    public static int[] SortArray(int[] array)
-    {
-
-        int temp;
-
-        for (int i = 0; i < array.Length; i++)
-        {
-            for (int j = i + 1; j < array.Length; j++)
-            {
-                if (array[i] > array[j])
-                {
-                    temp = array[i];
-                    array[i] = array[j];
-                    array[j] = temp;
-                }
-            }
-        }
-        
-        return array;
     }
 }
