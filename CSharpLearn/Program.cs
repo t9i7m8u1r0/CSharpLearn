@@ -5,9 +5,7 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int[] array = { 1, 2, 4, 3, 5 };
-
-        ShowArray(array);
+        ShowArray(GetArrayFromConsole(10), true);
     }
     public static int[] GetArrayFromConsole(int num = 5)
     {
@@ -38,7 +36,7 @@ class MainClass
     public static void ShowArray(int[] arr, bool x = false)
     {
         int[] temp = arr;
-        if (x == true)
+        if (x)
         {
             temp = SortArray(arr);
         }
