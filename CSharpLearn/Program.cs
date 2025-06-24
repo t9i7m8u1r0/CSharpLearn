@@ -5,9 +5,8 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int[] x = { 1, 2, 3 };
-        GetArrayFromConsole();
-        SortArray(x);
+        int[] array = GetArrayFromConsole();
+        int[] sortedarray = SortArray(array);
     }
     public static int[] GetArrayFromConsole(int num = 5)
     {
@@ -20,7 +19,7 @@ class MainClass
     }
     public static int[] SortArray(int[] result)
     {
-        int temp = 0;
+        int temp;
         for (int i = 0; i < result.Length;i++)
         {
             for (int j = i + 1; j < result.Length; j++)
