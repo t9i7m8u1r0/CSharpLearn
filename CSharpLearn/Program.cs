@@ -5,45 +5,26 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        ShowArray(GetArrayFromConsole(10), true);
+        int age = 15;
+        Console.WriteLine(age);
+        ChangeAge(age);
+        Console.WriteLine(age);
+
+        //var someName = "Евгения";
+        //Console.WriteLine(someName);
+
+        //GetName(someName);
+
+        //Console.WriteLine(someName);
     }
-    public static int[] GetArrayFromConsole(int num = 5)
+    public static void GetName(string name)
     {
-        var result = new int[num];
-        for (int i = 0;  i < result.Length; i++)
-        {
-            result[i] = int.Parse(Console.ReadLine());
-        }
-        return result;
+        Console.WriteLine("Введите имя");
+        name = Console.ReadLine();
     }
-    public static int[] SortArray(int[] result)
+    public static void ChangeAge(int age)
     {
-        int temp;
-        for (int i = 0; i < result.Length;i++)
-        {
-            for (int j = i + 1; j < result.Length; j++)
-            {
-                if (result[i] > result[j])
-                {
-                    temp = result[i];
-                    result[i] = result[j];
-                    result[j] = temp;
-                }
-            }
-        }
-        return result;
-    }
-    public static void ShowArray(int[] arr, bool x = false)
-    {
-        int[] temp = arr;
-        if (x)
-        {
-            temp = SortArray(arr);
-        }
-        
-        foreach (int i in temp)
-        {
-            Console.WriteLine(i);
-        }
+        age = 45;
+        Console.WriteLine(age);
     }
 }
