@@ -5,26 +5,13 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int age = 15;
-        Console.WriteLine(age);
-        ChangeAge(age);
-        Console.WriteLine(age);
-
-        //var someName = "Евгения";
-        //Console.WriteLine(someName);
-
-        //GetName(someName);
-
-        //Console.WriteLine(someName);
+        int num = 5;
+        int[] array = new int[num];
+        GetArrayFromConsole(ref num);
+        Console.WriteLine(num);
     }
-    public static void GetName(string name)
+    public static void GetArrayFromConsole(ref int num)
     {
-        Console.WriteLine("Введите имя");
-        name = Console.ReadLine();
-    }
-    public static void ChangeAge(int age)
-    {
-        age = 45;
-        Console.WriteLine(age);
+        num = 6;
     }
 }
