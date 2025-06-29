@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Drawing;
-using System.Xml.Linq;
 class MainClass
 {
     public static void Main(string[] args)
     {
         Console.Write("Напишите что-то: ");
-        var modif = Console.ReadLine();
+        var str = Console.ReadLine();
 
         Console.Write("Укажите глубину эха: ");
         var deep = int.Parse(Console.ReadLine());
 
-        Echo(modif, deep);
+        Echo(str, deep);
     }
     public static void Echo(string saidworld, int deep)
     {
@@ -22,6 +20,7 @@ class MainClass
             modif = modif.Remove(0, 2);
         }
 
+        Console.BackgroundColor = (ConsoleColor)deep;
         Console.WriteLine("..." + modif);
 
         if (deep > 1)
