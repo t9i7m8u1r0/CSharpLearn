@@ -5,79 +5,28 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        int[] arr = new int[5];
-        Console.WriteLine("Введите пять чисел");
-        for (int i = 0; i < arr.Length; i++)
-        {
-            arr[i] = int.Parse(Console.ReadLine());
-        }
+        Console.Write("Напишите что-то: ");
+        var modif = Console.ReadLine();
 
-        int[] sortedask;
-        int[] sorteddesk;
+        Console.Write("Укажите глубину эха: ");
+        var deep = int.Parse(Console.ReadLine());
 
-        SortArray(arr, out sorteddesk, out sortedask);
-
-        Console.WriteLine("По возрастанию:");
-        foreach (int i in sortedask)
-        {
-            Console.Write(i + " ");
-        }
-
-        Console.WriteLine("\nПо убыванию:");
-        foreach (int i in sorteddesk)
-        {
-            Console.Write(i + " ");
-        }
+        Echo(modif, deep);
     }
-    public static void SortArray(in int[] array, out int[] sorteddesc, out int[] sortedasc)
+    public static void Echo(string saidworld, int deep)
     {
-        sortedasc = SortArrayAsc(array);
-        sorteddesc = SortArrayDesc(array);
-    }
-    public static int[] SortArrayDesc(int[] array)
-    {
-        int[] sorted = new int[array.Length];
-        for (int i = 0; i < array.Length;i++)
+        var modif = saidworld;
+
+        if (modif.Length > 2)
         {
-            sorted[i] = array[i];
+            modif = modif.Remove(0, 2);
         }
 
-        int temp;
-        for (int i = 0; i < sorted.Length; i++)
-        {
-            for (int j = i + 1; j < sorted.Length; j++)
-            {
-                if (sorted[i] < sorted[j])
-                {
-                    temp = sorted[i];
-                    sorted[i] = sorted[j];
-                    sorted[j] = temp;
-                }
-            }
-        }
-        return sorted;
-    }
-    public static int[] SortArrayAsc(int[] array)
-    {
-        int[] sorted = new int[array.Length];
-        for (int i = 0; i < array.Length; i++)
-        {
-            sorted[i] = array[i];
-        }
+        Console.WriteLine("..." + modif);
 
-        int temp;
-        for (int i = 0; i < sorted.Length; i++)
+        if (deep > 1)
         {
-            for (int j = i + 1; j < sorted.Length; j++)
-            {
-                if (sorted[i] > sorted[j])
-                {
-                    temp = sorted[i];
-                    sorted[i] = sorted[j];
-                    sorted[j] = temp;
-                }
-            }
+            Echo(modif, deep - 1);
         }
-        return sorted;
     }
 }
