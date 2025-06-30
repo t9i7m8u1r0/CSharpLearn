@@ -3,29 +3,24 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        Console.Write("Напишите что-то: ");
-        var str = Console.ReadLine();
-
-        Console.Write("Укажите глубину эха: ");
-        var deep = int.Parse(Console.ReadLine());
-
-        Echo(str, deep);
+        Console.WriteLine(PowerUp(3, 4));
     }
-    public static void Echo(string saidworld, int deep)
+    private static int PowerUp(int N, byte pow = 1)
     {
-        var modif = saidworld;
-
-        if (modif.Length > 2)
+        if (pow == 0)
         {
-            modif = modif.Remove(0, 2);
+            return 1;
         }
-
-        Console.BackgroundColor = (ConsoleColor)deep;
-        Console.WriteLine("..." + modif);
-
-        if (deep > 1)
+        else
         {
-            Echo(modif, deep - 1);
+            if (pow == 1)
+            {
+                return N;
+            }
+            else
+            {
+                return N * PowerUp(N, --pow);
+            }
         }
     }
 }
