@@ -7,20 +7,32 @@ class MainClass
     }
 }
 
-class Pen
+class Rectangle
 {
-    public string color;
-    public int cost;
+    public uint a;
+    public uint b;
 
-    public Pen()
+    public Rectangle()
     {
-        color = "Чёрный";
-        cost = 100;
+        a = 6;
+        b = 4;
     }
 
-    public Pen(string penColor, int penCost)
+    public Rectangle(uint square)
     {
-        color = penColor;
-        cost = penCost;
+        a = square;
+        b = square;
+    }
+
+    public Rectangle(uint first, uint second)
+    {
+        a = first;
+        b = second;
+    }
+
+    public static uint Square(uint a, uint b)
+    {
+        uint area = a * b;
+        return area;
     }
 }
