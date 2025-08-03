@@ -3,36 +3,22 @@ class MainClass
 {
     public static void Main(string[] args)
     {
-        var department = GetCurrentDepartment();
-    }
-
-    static Department GetCurrentDepartment()
-    {
-        Company company = new Company();
-        Department department = new Department();
-
-        if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
-        {
-            Console.WriteLine($"У банка {department?.Company?.Name ?? "Неизвестная компания"} есть отделение в Санкт-Петербурге");
-        }
         
-        return department;
     }
 }
-
-class Company
+class Bus
 {
-    public string Type;
-    public string Name;
-}
+    public int? Load;
 
-class Department
-{
-    public Company Company;
-    public City City;
-}
-
-class City
-{
-    public string Name;
+    public void PrintStatus()
+    {
+        if (Load.HasValue && Load > 0)
+        {
+            Console.WriteLine($"В автобусе {Load.Value} человек");
+        }
+        else
+        {
+            Console.WriteLine("Пусто");
+        }
+    }
 }
