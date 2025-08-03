@@ -3,36 +3,36 @@ class MainClass
 {
     public static void Main(string[] args)
     {
+        var department = GetCurrentDepartment();
+    }
+
+    static Department GetCurrentDepartment()
+    {
+        Company company = new Company();
+        Department department = new Department();
+
+        if (department?.Company?.Type == "Банк" && department?.City?.Name == "Санкт-Петербург")
+        {
+            Console.WriteLine($"У банка {department?.Company?.Name ?? "Неизвестная компания"} есть отделение в Санкт-Петербурге");
+        }
         
+        return department;
     }
 }
 
-class Rectangle
+class Company
 {
-    public uint a;
-    public uint b;
+    public string Type;
+    public string Name;
+}
 
-    public Rectangle()
-    {
-        a = 6;
-        b = 4;
-    }
+class Department
+{
+    public Company Company;
+    public City City;
+}
 
-    public Rectangle(uint square)
-    {
-        a = square;
-        b = square;
-    }
-
-    public Rectangle(uint first, uint second)
-    {
-        a = first;
-        b = second;
-    }
-
-    public static uint Square(uint a, uint b)
-    {
-        uint area = a * b;
-        return area;
-    }
+class City
+{
+    public string Name;
 }
