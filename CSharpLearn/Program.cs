@@ -6,47 +6,19 @@
     }
 }
 
-class User
+class Employee
 {
-    string login;
-    string email;
+    public string Name;
+    public int Age;
+    public int Salary;
+}
 
-    public string Login
-    {
-        get
-        {
-            return login;
-        }
+class ProjectManager : Employee
+{
+    public string ProjectName;
+}
 
-        set
-        {
-            if (value.Length >= 3)
-            {
-                login = value;
-            }
-            else
-            {
-                Console.WriteLine("Login must be 3 or more characters");
-            }
-        }
-    }
-
-    public string Email
-    {
-        get
-        {
-            return email;
-        }
-        set
-        {
-            if (value.Contains("@"))
-            {
-                email = value;
-            }
-            else
-            {
-                Console.WriteLine("Email must contain @");
-            }
-        }
-    }
+class Developer : Employee
+{
+    public string ProgrammingLanguage;
 }
