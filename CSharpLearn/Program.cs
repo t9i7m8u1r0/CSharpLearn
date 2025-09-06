@@ -1,34 +1,29 @@
-﻿class MainClass
+﻿using System;
+using System.Runtime.InteropServices.Marshalling;
+
+namespace CSharpLearn
 {
-    public static void Main(string[] args)
+    internal class MainClass
     {
-        
-    }
-}
-
-class BaseClass
-{
-    protected string Name;
-
-    public BaseClass(string name)
-    {
-        Name = name;
-    }
-}
-
-class DerivedClass : BaseClass
-{
-    public string Description;
-
-    public int Counter;
-
-    public DerivedClass(string name, string description) : base (name)
-    {
-        Description = description;
+        public static void Main(string[] args)
+        {
+            //7.2.3
+        }
     }
 
-    public DerivedClass(string name, string description, int counter) : this (name, description)
+    class BaseClass
     {
-        Counter = counter;
+        public virtual void Display()
+        {
+            Console.WriteLine("Метод класса BaseClass");
+        }
+    }
+
+    class DerivedClass : BaseClass
+    {
+        public override void Display()
+        {
+            Console.WriteLine("Метод класса DerivedClass");
+        }
     }
 }
