@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices.Marshalling;
 
 namespace CSharpLearn
 {
@@ -7,23 +6,34 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.2.3
+            //7.2.4
         }
     }
 
     class BaseClass
     {
-        public virtual void Display()
+        public virtual int Counter
         {
-            Console.WriteLine("Метод класса BaseClass");
+            get;
+            set;
         }
     }
 
     class DerivedClass : BaseClass
     {
-        public override void Display()
+        public override int Counter
         {
-            Console.WriteLine("Метод класса DerivedClass");
+            get
+            {
+                return Counter;
+            }
+            set
+            {
+                if (Counter >= 0)
+                {
+                    Counter = value;
+                }
+            }
         }
     }
 }
