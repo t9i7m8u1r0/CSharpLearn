@@ -6,34 +6,26 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.2.4
+            //7.2.5
+            DerivedClass obj = new DerivedClass();
+            obj.Display();
         }
     }
 
     class BaseClass
     {
-        public virtual int Counter
+        public virtual void Display()
         {
-            get;
-            set;
+            Console.WriteLine("Метод класса BaseClass");
         }
     }
 
     class DerivedClass : BaseClass
     {
-        public override int Counter
+        public override void Display()
         {
-            get
-            {
-                return Counter;
-            }
-            set
-            {
-                if (Counter >= 0)
-                {
-                    Counter = value;
-                }
-            }
+            base.Display();
+            Console.WriteLine("Метод класса DerivedClass");
         }
     }
 }
