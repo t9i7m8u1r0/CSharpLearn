@@ -6,47 +6,28 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.2.7
+            //7.2.12
         }
     }
 
-    class A
+    class Obj
     {
-        public virtual void Display()
+        public int Value;
+
+        public static Obj operator +(Obj first, Obj second)
         {
-            Console.WriteLine("A");
+            return new Obj
+            {
+                Value = first.Value + second.Value
+            };
         }
-    }
 
-    class B : A
-    {
-        public new void Display()
+        public static Obj operator -(Obj first, Obj second)
         {
-            Console.WriteLine("B");
-        }
-    }
-
-    class C : A
-    {
-        public override void Display()
-        {
-            Console.WriteLine("C");
-        }
-    }
-
-    class D : B
-    {
-        public new void Display()
-        {
-
-        }
-    }
-
-    class E : C
-    {
-        public new void Display()
-        {
-
+            return new Obj
+            {
+                Value = first.Value - second.Value
+            };
         }
     }
 }
