@@ -6,28 +6,23 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.2.12
+            //7.2.14
         }
     }
 
-    class Obj
+    class IndexingClass
     {
-        public int Value;
+        private int[] array;
 
-        public static Obj operator +(Obj first, Obj second)
+        public IndexingClass(int[] array)
         {
-            return new Obj
-            {
-                Value = first.Value + second.Value
-            };
+            this.array = array;
         }
 
-        public static Obj operator -(Obj first, Obj second)
+        public int this[int index]
         {
-            return new Obj
-            {
-                Value = first.Value - second.Value
-            };
+            get { return array[index]; }
+            set { array[index] = value; }
         }
     }
 }
