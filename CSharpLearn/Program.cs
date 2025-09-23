@@ -6,23 +6,27 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.2.14
+            //7.3.3
         }
     }
 
-    class IndexingClass
+    abstract class ComputerPart
     {
-        private int[] array;
+        public abstract void Work();
+    }
 
-        public IndexingClass(int[] array)
-        {
-            this.array = array;
-        }
+    class Processor : ComputerPart
+    {
+        public override void Work() { }
+    }
 
-        public int this[int index]
-        {
-            get { return array[index]; }
-            set { array[index] = value; }
-        }
+    class MotherBoard : ComputerPart
+    {
+        public override void Work() { }
+    }
+
+    class GraphicCard : ComputerPart
+    {
+        public override void Work() { }
     }
 }
