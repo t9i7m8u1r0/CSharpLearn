@@ -6,27 +6,15 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.3.3
+            //7.5.2
         }
     }
 
-    abstract class ComputerPart
+    class Obj
     {
-        public abstract void Work();
-    }
+        static int MaxValue = 2000;
 
-    class Processor : ComputerPart
-    {
-        public override void Work() { }
-    }
-
-    class MotherBoard : ComputerPart
-    {
-        public override void Work() { }
-    }
-
-    class GraphicCard : ComputerPart
-    {
-        public override void Work() { }
+        string Name;
+        string Description;
     }
 }
