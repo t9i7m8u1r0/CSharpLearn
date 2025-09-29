@@ -6,25 +6,24 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.5.3
-
-            int num1 = 3;
-            int num2 = 58;
-
-            Helper.Swap(ref num1, ref num2);
-
-            Console.WriteLine(num1); //58
-            Console.WriteLine(num2); //3
+            //7.5.5
         }
     }
 
-    class Helper
+    class Obj
     {
-        public static void Swap(ref int num1, ref int num2)
+        public string Name;
+        public string Description;
+
+        public static string Parent;
+        public static int DaysInWeek;
+        public static int MaxValue;
+
+        static Obj()
         {
-            int temp = num1;
-            num1 = num2;
-            num2 = temp;
+            Parent = "System.Object";
+            DaysInWeek = 7;
+            MaxValue = 2000;
         }
     }
 }
