@@ -6,19 +6,25 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.6.7
+            //7.6.9
         }
     }
 
-    class Car<T>
+    class Engine { }
+    class ElectricEngine : Engine { }
+    class GasEngine : Engine { }
+    class CarPart { }
+    class Battery : CarPart { }
+    class Differential : CarPart { }
+    class Wheel : CarPart { }
+
+    class Car<T> where T : Engine
     {
         public T Engine;
 
-        public virtual void ChangePart<T>(T newPart) { }
+        public virtual void ChangePart<T>(T newPart) where T : CarPart
+        {
+
+        }
     }
-    class ElectricEngine { }
-    class GasEngine { }
-    class Battery { }
-    class Differential { }
-    class Wheel { }
 }
