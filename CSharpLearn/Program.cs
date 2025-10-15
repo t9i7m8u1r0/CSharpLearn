@@ -6,7 +6,7 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //7.6.9
+            //7.6.10
         }
     }
 
@@ -18,11 +18,11 @@ namespace CSharpLearn
     class Differential : CarPart { }
     class Wheel : CarPart { }
 
-    class Car<T> where T : Engine
+    class Car<TEngine> where TEngine : Engine
     {
-        public T Engine;
+        public TEngine Engine;
 
-        public virtual void ChangePart<T>(T newPart) where T : CarPart
+        public virtual void ChangePart<TPart>(TPart newPart) where TPart : CarPart
         {
 
         }
