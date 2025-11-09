@@ -1,0 +1,9 @@
+﻿using System;
+
+namespace CSharpLearn
+{
+    internal class Folder
+    {
+        public List<string> Files { get; set; } = new List<string>();
+    }
+}
