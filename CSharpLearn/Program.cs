@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace CSharpLearn
 {
@@ -6,22 +7,32 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.2.1
+            //задание 8.2.2
 
-            string dirName = @"C:\";
+            string newDir = @"C:\NewTestFolder";
+            string parentDir = @"C:\";
 
-            if (Directory.Exists(dirName))
+            if (!Directory.Exists(newDir))
             {
-                int filesCount = Directory.GetFiles(dirName).Length;
-                Console.WriteLine($"Количество файлов в \"{dirName}\": {filesCount}");
+                int filesCount = Directory.GetFiles(parentDir).Length;
+                Console.WriteLine($"Количество файлов в \"{parentDir}\" до: {filesCount}");
 
-                int directoriesCount = Directory.GetDirectories(dirName).Length;
-                Console.WriteLine($"Количество файлов в \"{dirName}\": {directoriesCount}");
+                int directoriesCount = Directory.GetDirectories(parentDir).Length;
+                Console.WriteLine($"Количество папок в \"{parentDir}\" до: {directoriesCount}");
+
+                Directory.CreateDirectory(newDir);
+                Console.WriteLine($"\nПапка {newDir} создана.\n");
+
+                filesCount = Directory.GetFiles(parentDir).Length;
+                Console.WriteLine($"Количество файлов в \"{parentDir}\" после: {filesCount}");
+
+                directoriesCount = Directory.GetDirectories(parentDir).Length;
+                Console.WriteLine($"Количество папок в \"{parentDir}\" после: {directoriesCount}");
             }
 
             else
             {
-                Console.WriteLine("Директории не существует");
+                Console.WriteLine($"Директория \"{newDir}\" уже существует");
             }
         }
     }
