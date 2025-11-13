@@ -7,7 +7,7 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.2.2
+            //задание 8.2.3
 
             string newDir = @"C:\NewTestFolder";
             string parentDir = @"C:\";
@@ -32,7 +32,10 @@ namespace CSharpLearn
 
             else
             {
-                Console.WriteLine($"Директория \"{newDir}\" уже существует");
+                DirectoryInfo dirInfo = new DirectoryInfo(newDir);
+
+                dirInfo.Delete(true);
+                Console.WriteLine($"Директория {newDir} удалена.");
             }
         }
     }
