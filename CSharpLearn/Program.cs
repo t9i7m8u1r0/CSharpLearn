@@ -7,36 +7,19 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.2.3
+            //задание 8.2.4
 
-            string newDir = @"C:\NewTestFolder";
-            string parentDir = @"C:\";
+            string desktopDir = @"C:\Users\luft\Desktop\testFolder";
+            string trashDir = @"C:\.Trash";
 
-            if (!Directory.Exists(newDir))
+            if (Directory.Exists(desktopDir))
             {
-                int filesCount = Directory.GetFiles(parentDir).Length;
-                Console.WriteLine($"Количество файлов в \"{parentDir}\" до: {filesCount}");
-
-                int directoriesCount = Directory.GetDirectories(parentDir).Length;
-                Console.WriteLine($"Количество папок в \"{parentDir}\" до: {directoriesCount}");
-
-                Directory.CreateDirectory(newDir);
-                Console.WriteLine($"\nПапка {newDir} создана.\n");
-
-                filesCount = Directory.GetFiles(parentDir).Length;
-                Console.WriteLine($"Количество файлов в \"{parentDir}\" после: {filesCount}");
-
-                directoriesCount = Directory.GetDirectories(parentDir).Length;
-                Console.WriteLine($"Количество папок в \"{parentDir}\" после: {directoriesCount}");
+                DirectoryInfo dirInfo = new DirectoryInfo(desktopDir);
+                dirInfo.MoveTo(trashDir);
             }
 
             else
-            {
-                DirectoryInfo dirInfo = new DirectoryInfo(newDir);
-
-                dirInfo.Delete(true);
-                Console.WriteLine($"Директория {newDir} удалена.");
-            }
+                Console.WriteLine($"Директории {desktopDir} не существует");
         }
     }
 }
