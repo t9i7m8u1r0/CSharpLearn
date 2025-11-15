@@ -7,19 +7,13 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.2.4
+            //задание 8.3.1
 
-            string desktopDir = @"C:\Users\luft\Desktop\testFolder";
-            string trashDir = @"C:\.Trash";
+            string path = @"C:\Users\username\source\repos\CSharpLearn\CSharpLearn\Program.cs";
 
-            if (Directory.Exists(desktopDir))
-            {
-                DirectoryInfo dirInfo = new DirectoryInfo(desktopDir);
-                dirInfo.MoveTo(trashDir);
-            }
+            string textInFile = File.ReadAllText(path);
 
-            else
-                Console.WriteLine($"Директории {desktopDir} не существует");
+            Console.WriteLine(textInFile);
         }
     }
 }
