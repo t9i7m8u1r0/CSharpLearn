@@ -7,9 +7,13 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.3.1
+            //задание 8.3.2
 
-            string path = @"C:\Users\username\source\repos\CSharpLearn\CSharpLearn\Program.cs";
+            string path = @"C:\Users\t9i7m\source\repos\CSharpLearn\CSharpLearn\Program.cs";
+
+            string newLine = "//" + DateTime.Now;
+
+            File.AppendAllText(path, newLine);
 
             string textInFile = File.ReadAllText(path);
 
