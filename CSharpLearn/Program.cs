@@ -7,17 +7,27 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.3.2
+            //задание 8.4.1
 
-            string path = @"C:\Users\t9i7m\source\repos\CSharpLearn\CSharpLearn\Program.cs";
+            const string filePath = @"C:\Users\t9i7m\Downloads\BinaryFile.bin";
 
-            string newLine = "//" + DateTime.Now;
+            if (File.Exists(filePath))
+            {
+                FileStream fileStream = File.OpenRead(filePath);
 
-            File.AppendAllText(path, newLine);
+                BinaryReader binaryReader = new BinaryReader(fileStream);
 
-            string textInFile = File.ReadAllText(path);
+                string strValue = binaryReader.ReadString();
 
-            Console.WriteLine(textInFile);
+                Console.WriteLine(strValue);
+
+                binaryReader.Close();
+                fileStream.Close();
+            }
+            else
+            {
+                Console.WriteLine("File not found");
+            }
         }
     }
 }
