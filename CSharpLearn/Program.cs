@@ -7,23 +7,30 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.4.1
+            //задание 8.4.2
 
             const string filePath = @"C:\Users\t9i7m\Downloads\BinaryFile.bin";
 
             if (File.Exists(filePath))
             {
-                FileStream fileStream = File.OpenRead(filePath);
+                FileStream fileStreamWrite = File.OpenWrite(filePath);
+                BinaryWriter binaryWriter = new BinaryWriter(fileStreamWrite);
 
-                BinaryReader binaryReader = new BinaryReader(fileStream);
+                binaryWriter.Write("Файл изменен 28.11 на Windows 11");
+
+                fileStreamWrite.Close();
+                binaryWriter.Close();
+
+                FileStream fileStreamRead = File.OpenRead(filePath);
+                BinaryReader binaryReader = new BinaryReader(fileStreamRead);
 
                 string strValue = binaryReader.ReadString();
-
                 Console.WriteLine(strValue);
 
+                fileStreamRead.Close();
                 binaryReader.Close();
-                fileStream.Close();
             }
+
             else
             {
                 Console.WriteLine("File not found");
