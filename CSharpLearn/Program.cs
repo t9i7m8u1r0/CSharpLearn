@@ -7,34 +7,27 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 8.4.2
+            //задание 8.4.3
 
-            const string filePath = @"C:\Users\t9i7m\Downloads\BinaryFile.bin";
+            Contact contact = new Contact("John Doe", 1234567890, "john.doe@example.com");
 
-            if (File.Exists(filePath))
+            // Сериализация объекта в бинарный файл
+            using (FileStream fileStream = new FileStream("contact.bin", FileMode.Create))
+            using (BinaryWriter binaryWriter = new BinaryWriter(fileStream))
             {
-                FileStream fileStreamWrite = File.OpenWrite(filePath);
-                BinaryWriter binaryWriter = new BinaryWriter(fileStreamWrite);
-
-                binaryWriter.Write("Файл изменен 28.11 на Windows 11");
-
-                fileStreamWrite.Close();
-                binaryWriter.Close();
-
-                FileStream fileStreamRead = File.OpenRead(filePath);
-                BinaryReader binaryReader = new BinaryReader(fileStreamRead);
-
-                string strValue = binaryReader.ReadString();
-                Console.WriteLine(strValue);
-
-                fileStreamRead.Close();
-                binaryReader.Close();
+                contact.Serialize(binaryWriter);
             }
 
-            else
+            // Десериализация объекта из бинарного файла
+            Contact deserializedContact;
+            using (FileStream fileStream = new FileStream("contact.bin", FileMode.Open))
+            using (BinaryReader binaryReader = new BinaryReader(fileStream))
             {
-                Console.WriteLine("File not found");
+                deserializedContact = Contact.Deserialize(binaryReader);
             }
+
+            // Вывод десериализованных данных
+            Console.WriteLine($"Name: {deserializedContact.Name}, Phone: {deserializedContact.PhoneNumber}, Email: {deserializedContact.Email}");
         }
     }
 }
