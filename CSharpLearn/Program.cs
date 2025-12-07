@@ -6,10 +6,10 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 9.1.3
+            //задание 9.1.4
 
-            Exception exception = new Exception();
-            exception.Data.Add("Дата создания исключения: ", DateTime.Now);
+            Exception exception = new Exception("Исключение!");
+            exception.HelpLink = "www.google.com";
         }
     }
 }
