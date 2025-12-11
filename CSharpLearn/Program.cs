@@ -6,10 +6,22 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 9.1.4
+            //задание 9.2.2
 
-            Exception exception = new Exception("Исключение!");
-            exception.HelpLink = "www.google.com";
+            try
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка: " + ex.Message);
+            }
+
+            finally
+            {
+                Console.WriteLine("Сработал блок finally");
+            }
         }
     }
 }
