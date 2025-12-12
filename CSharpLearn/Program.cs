@@ -6,21 +6,21 @@ namespace CSharpLearn
     {
         public static void Main(string[] args)
         {
-            //задание 9.2.2
+            //задание 9.2.3
 
             try
             {
-                throw new ArgumentOutOfRangeException();
+                throw new RankException();
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
+                Console.WriteLine(ex.GetType());
             }
 
             finally
             {
-                Console.WriteLine("Сработал блок finally");
+                Console.WriteLine("Конец программы.");
             }
         }
     }
