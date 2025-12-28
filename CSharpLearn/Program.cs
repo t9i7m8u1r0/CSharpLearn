@@ -4,24 +4,27 @@ namespace CSharpLearn
 {
     class MainClass
     {
-        delegate int SomeDelegate(int a, int b);
+        delegate void SomeDelegate(int a, int b);
 
-        static int SomeFunction(int a, int b)
+        static void FirstFunction(int a, int b)
         {
-            return b - a;
+            Console.WriteLine(a - b);
+        }
+
+        static void SecondFunction(int a, int b)
+        {
+            Console.WriteLine(a + b);
         }
 
         public static void Main(string[] args)
         {
-            //9.3.3
+            //9.3.4
 
-            SomeDelegate someDelegate = SomeFunction;
+            SomeDelegate someDelegate = FirstFunction;
 
-            int result = someDelegate.Invoke(1, 2);
+            someDelegate += SecondFunction;
 
-            int result2 = someDelegate(1, 2);
-
-            Console.WriteLine(result);
+            someDelegate.Invoke(1, 2);
         }
     }
 }
