@@ -2,26 +2,24 @@
 
 namespace CSharpLearn
 {
-    internal class MainClass
+    class MainClass
     {
+        delegate int SomeDelegate(int a, int b);
+
+        static int SomeFunction(int a, int b)
+        {
+            return b - a;
+        }
+
         public static void Main(string[] args)
         {
-            //задание 9.2.3
+            //9.3.2
 
-            try
-            {
-                throw new RankException();
-            }
+            SomeDelegate someDelegate = SomeFunction;
 
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.GetType());
-            }
+            int result = someDelegate.Invoke(1, 2);
 
-            finally
-            {
-                Console.WriteLine("Конец программы.");
-            }
+            Console.WriteLine(result);
         }
     }
 }
