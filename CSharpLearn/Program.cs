@@ -16,13 +16,15 @@ namespace CSharpLearn
             Console.WriteLine(a + b);
         }
 
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             //9.3.4
 
             SomeDelegate someDelegate = FirstFunction;
 
             someDelegate += SecondFunction;
+
+            someDelegate -= SecondFunction;
 
             someDelegate.Invoke(1, 2);
         }
