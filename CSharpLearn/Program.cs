@@ -13,11 +13,13 @@ namespace CSharpLearn
 
         public static void Main(string[] args)
         {
-            //9.3.2
+            //9.3.3
 
             SomeDelegate someDelegate = SomeFunction;
 
             int result = someDelegate.Invoke(1, 2);
+
+            int result2 = someDelegate(1, 2);
 
             Console.WriteLine(result);
         }
