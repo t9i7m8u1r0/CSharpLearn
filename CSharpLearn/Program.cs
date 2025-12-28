@@ -4,29 +4,40 @@ namespace CSharpLearn
 {
     class MainClass
     {
-        delegate void SomeDelegate(int a, int b);
-
-        static void FirstFunction(int a, int b)
+        static void ShowMessage()
         {
-            Console.WriteLine(a - b);
+            Console.WriteLine("Hello World!");
         }
 
-        static void SecondFunction(int a, int b)
+        static int Sum(int a, int b, int c)
         {
-            Console.WriteLine(a + b);
+            return a + b + c;
         }
+
+        static bool CheckLength(string _row)
+        {
+            if (_row.Length > 3) return true;
+            return false;
+        }
+
+        delegate void ShowMessageDelegate();
+        delegate int SumDelegate(int a, int b, int c);
+        delegate bool CheckLengthDelegate(string _row);
 
         static void Main(string[] args)
         {
-            //9.3.4
+            //9.3.7
 
-            SomeDelegate someDelegate = FirstFunction;
+            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            showMessageDelegate.Invoke();
 
-            someDelegate += SecondFunction;
+            SumDelegate sumDelegate = Sum;
+            int result = sumDelegate.Invoke(1, 30, 120);
+            Console.WriteLine(result);
 
-            someDelegate -= SecondFunction;
-
-            someDelegate.Invoke(1, 2);
+            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            bool status = checkLengthDelegate.Invoke("skill_factory");
+            Console.WriteLine(status);
         }
     }
 }
