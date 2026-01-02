@@ -14,28 +14,24 @@ namespace CSharpLearn
             return a + b + c;
         }
 
-        static bool CheckLength(string _row)
+        static bool CheckLength(string row)
         {
-            if (_row.Length > 3) return true;
+            if (row.Length > 3) return true;
             return false;
         }
 
-        delegate void ShowMessageDelegate();
-        delegate int SumDelegate(int a, int b, int c);
-        delegate bool CheckLengthDelegate(string _row);
-
         static void Main(string[] args)
         {
-            //9.3.7
+            //9.3.8
 
-            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            Action showMessageDelegate = ShowMessage;
             showMessageDelegate.Invoke();
 
-            SumDelegate sumDelegate = Sum;
+            Func<int, int, int, int> sumDelegate = Sum;
             int result = sumDelegate.Invoke(1, 30, 120);
             Console.WriteLine(result);
 
-            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            Predicate<string> checkLengthDelegate = CheckLength;
             bool status = checkLengthDelegate.Invoke("skill_factory");
             Console.WriteLine(status);
         }
