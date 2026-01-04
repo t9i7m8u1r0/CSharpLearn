@@ -4,15 +4,17 @@ namespace CSharpLearn
 {
     class MainClass
     {
-        delegate void ShowMessageDelegate(string message);
+        delegate int RandomNumberDelegate();
 
         static void Main(string[] args)
         {
-            //9.3.14
+            //9.3.15
 
-            ShowMessageDelegate showMessageDelegate = message => Console.WriteLine(message);
+            RandomNumberDelegate randomNumberDelegate = () => new Random().Next(0, 100);
 
-            showMessageDelegate.Invoke("Hello World!");
+            int result = randomNumberDelegate.Invoke();
+
+            Console.WriteLine(result);
         }
     }
 }
