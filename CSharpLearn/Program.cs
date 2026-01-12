@@ -2,23 +2,21 @@
 
 namespace CSharpLearn
 {
-    class Car { }
+    class Parent { }
 
-    class Lexus : Car { }
+    class Child : Parent { }
 
     class MainClass
     {
-        delegate Car carDelegate();
+        delegate void ChildDelegate(Child child);
 
-        static Lexus LexusMethod()
-        {
-            return null;
-        }
+        static void ParentMethod(Parent parent) { }
+
         static void Main(string[] args)
         {
-            //9.4.2
+            //9.4.3
 
-            carDelegate c = LexusMethod;
+            ChildDelegate c = ParentMethod;
         }
     }
 }
