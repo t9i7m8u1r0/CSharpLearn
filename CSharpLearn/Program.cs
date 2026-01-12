@@ -2,19 +2,23 @@
 
 namespace CSharpLearn
 {
+    class Car { }
+
+    class Lexus : Car { }
+
     class MainClass
     {
-        delegate int RandomNumberDelegate();
+        delegate Car carDelegate();
 
+        static Lexus LexusMethod()
+        {
+            return null;
+        }
         static void Main(string[] args)
         {
-            //9.3.15
+            //9.4.2
 
-            RandomNumberDelegate randomNumberDelegate = () => new Random().Next(0, 100);
-
-            int result = randomNumberDelegate.Invoke();
-
-            Console.WriteLine(result);
+            carDelegate c = LexusMethod;
         }
     }
 }
