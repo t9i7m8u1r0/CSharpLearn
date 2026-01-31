@@ -6,31 +6,38 @@ namespace CSharpLearn
     {
         static void Main(string[] args)
         {
-            //9.6.1 (HW-03) - Task 1
+            //9.6.1 (HW-03) - Task 2
 
-            MyException[] myExceptions = new MyException[5]
+            try
             {
-                new MyException("MyException1"),
-                new MyException("MyException2"),
-                new MyException("MyException3"),
-                new MyException("MyException4"),
-                new MyException("MyException5")
-            };
+                Console.WriteLine("Введите 1 (А-Я) или 2 (Я-А):");
 
-            for (int i = 0; i < myExceptions.Length; i++)
+                if (!int.TryParse(Console.ReadLine(), out int userChoice))
+                {
+                    throw new MyException("Ввод должен быть числом");
+                }
+
+                if (userChoice != 1 && userChoice != 2)
+                {
+                    throw new MyException("Допустимы только значения 1 или 2");
+                }
+
+                SortManager sortManager = new SortManager();
+
+                SortService sortService = new SortService();
+
+                sortManager.SortRequested += sortService.SortRequest;
+
+                sortManager.RequestSort(userChoice);
+            }
+            catch (MyException ex)
             {
-                try
-                {
-                    throw myExceptions[i];
-                }
-                catch (MyException ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                finally
-                {
-                    Console.WriteLine();
-                }
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine();
+                Console.WriteLine("Программа завершена.");
             }
         }
     }

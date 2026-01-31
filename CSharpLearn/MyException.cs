@@ -2,8 +2,11 @@
 
 namespace CSharpLearn
 {
-    class MyException(string message) : Exception(message)
+    class MyException : Exception
     {
-
+        public MyException(string message) : base(message)
+        {
+            
+        }
     }
 }
