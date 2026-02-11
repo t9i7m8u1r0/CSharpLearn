@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace CSharpLearn
+namespace Task2
 {
     class MyException : Exception
     {
         public MyException(string message) : base(message)
         {
-            
+
         }
     }
 }

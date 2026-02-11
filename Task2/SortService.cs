@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CSharpLearn
+namespace Task2
 {
     class SortService
     {

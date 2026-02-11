@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace CSharpLearn
+namespace Task2
 {
     class SortManager
     {
-        public event Action<int> SortRequested;
+        public event Action<int>? SortRequested;
 
         public void RequestSort(int choice)
         {
