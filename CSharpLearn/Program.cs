@@ -6,19 +6,17 @@ namespace CSharpLearn
     {
         static void Main()
         {
-            Writer writter = new Writer();
-
-            ((IWriter)writter).Write();
+            
         }
     }
 
-    interface IWriter
+    interface IWorker
     {
-        void Write();
+        void Build();
     }
 
-    class Writer : IWriter
+    class Worker : IWorker
     {
-        void IWriter.Write() { }
+        public void Build() { }
     }
 }
