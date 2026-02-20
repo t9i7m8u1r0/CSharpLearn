@@ -6,7 +6,9 @@ namespace CSharpLearn
     {
         static void Main()
         {
-            
+            Worker worker = new Worker();
+
+            ((IWorker)worker).Build();
         }
     }
 
@@ -17,6 +19,6 @@ namespace CSharpLearn
 
     class Worker : IWorker
     {
-        public void Build() { }
+        void IWorker.Build() { }
     }
 }
