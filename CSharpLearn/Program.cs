@@ -6,7 +6,19 @@ namespace CSharpLearn
     {
         static void Main()
         {
-            Console.ReadKey();
+            Writer writter = new Writer();
+
+            ((IWriter)writter).Write();
         }
+    }
+
+    interface IWriter
+    {
+        void Write();
+    }
+
+    class Writer : IWriter
+    {
+        void IWriter.Write() { }
     }
 }
