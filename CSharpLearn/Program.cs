@@ -6,19 +6,40 @@ namespace CSharpLearn
     {
         static void Main()
         {
-            Worker worker = new Worker();
-
-            ((IWorker)worker).Build();
+            
         }
     }
 
-    interface IWorker
+    public interface IWriter
     {
-        void Build();
+        void Write();
     }
 
-    class Worker : IWorker
+    public interface IReader
     {
-        void IWorker.Build() { }
+        void Read();
+    }
+
+    public interface IMailer
+    {
+        void SendEmail();
+    }
+
+    class FileManager : IWriter, IReader, IMailer
+    {
+        public void Read()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendEmail()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Write()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
