@@ -6,36 +6,20 @@ namespace CSharpLearn
     {
         static void Main()
         {
-            
+            IUpdater<Account> updater = new UserService();
         }
     }
 
-    public interface IBook
+    public class User { }
+    public class Account : User { }
+
+    public interface IUpdater<in T>
     {
-        void Read();
+        void Update(T entity);
     }
 
-    public interface IDevice
+    class UserService : IUpdater<User>
     {
-        void TurnOn();
-        void TurnOff();
-    }
-
-    class ElectronicBook : IBook, IDevice
-    {
-        void IBook.Read()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDevice.TurnOff()
-        {
-            throw new NotImplementedException();
-        }
-
-        void IDevice.TurnOn()
-        {
-            throw new NotImplementedException();
-        }
+        public void Update(User entity) { }
     }
 }
